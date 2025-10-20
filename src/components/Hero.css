@@ -141,6 +141,22 @@
   background: rgba(0, 212, 255, 0.1);
 }
 
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn-outline:hover {
+  background: var(--accent);
+  color: var(--bg-primary);
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+}
+
 .social-links {
   display: flex;
   gap: 2rem;

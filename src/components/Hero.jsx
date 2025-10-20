@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaPhone,
+  FaDownload,
+} from "react-icons/fa";
 import "./Hero.css";
 
 const Hero = () => {
@@ -69,6 +75,15 @@ const Hero = () => {
             whileTap={{ scale: 0.95 }}
           >
             View Experience
+          </motion.a>
+          <motion.a
+            href={`${import.meta.env.BASE_URL}JAIDEEP_Resume.pdf`}
+            download="Jaideep_Resume.pdf"
+            className="btn btn-outline"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FaDownload /> Download Resume
           </motion.a>
         </motion.div>
 
