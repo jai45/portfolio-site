@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import emailjs from "@emailjs/browser";
 import {
   FaEnvelope,
   FaPhone,
@@ -14,14 +15,16 @@ import "./Contact.css";
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const formRef = useRef();
 
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    from_name: "",
+    from_email: "",
     message: "",
   });
 
   const [status, setStatus] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -30,12 +33,29 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the form data to a backend service
-    setStatus("Message sent! I'll get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
-    setTimeout(() => setStatus(""), 5000);
+    setIsLoading(true);
+    setStatus("");
+
+    try {
+      // Replace these with your EmailJS credentials
+      const serviceId = "service_wx3ki41";
+      const templateId = "template_xybs8cx";
+      const publicKey = "JoCKAq5I_9TQ7VUWe";
+
+      await emailjs.sendForm(serviceId, templateId, formRef.current, publicKey);
+
+      setStatus("success");
+      setFormData({ from_name: "", from_email: "", message: "" });
+      setTimeout(() => setStatus(""), 5000);
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setStatus("error");
+      setTimeout(() => setStatus(""), 5000);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const contactInfo = [
@@ -133,25 +153,31 @@ const Contact = () => {
             variants={itemVariants}
             className="contact-form-container"
           >
-            <form onSubmit={handleSubmit} className="contact-form">
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              className="contact-form"
+            >
               <div className="form-group">
                 <input
                   type="text"
-                  name="name"
+                  name="from_name"
                   placeholder="Your Name"
-                  value={formData.name}
+                  value={formData.from_name}
                   onChange={handleChange}
                   required
+                  disabled={isLoading}
                 />
               </div>
               <div className="form-group">
                 <input
                   type="email"
-                  name="email"
+                  name="from_email"
                   placeholder="Your Email"
-                  value={formData.email}
+                  value={formData.from_email}
                   onChange={handleChange}
                   required
+                  disabled={isLoading}
                 />
               </div>
               <div className="form-group">
@@ -162,23 +188,35 @@ const Contact = () => {
                   onChange={handleChange}
                   rows="6"
                   required
+                  disabled={isLoading}
                 />
               </div>
               <motion.button
                 type="submit"
                 className="submit-btn"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: isLoading ? 1 : 1.05 }}
+                whileTap={{ scale: isLoading ? 1 : 0.95 }}
+                disabled={isLoading}
               >
-                <FaPaperPlane /> Send Message
+                <FaPaperPlane /> {isLoading ? "Sending..." : "Send Message"}
               </motion.button>
-              {status && (
+              {status === "success" && (
                 <motion.p
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="status-message"
+                  className="status-message success"
                 >
-                  {status}
+                  ✓ Message sent! I'll get back to you soon.
+                </motion.p>
+              )}
+              {status === "error" && (
+                <motion.p
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="status-message error"
+                >
+                  ✗ Failed to send message. Please try again or email me
+                  directly.
                 </motion.p>
               )}
             </form>
