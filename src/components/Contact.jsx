@@ -62,20 +62,20 @@ const Contact = () => {
     {
       icon: <FaEnvelope />,
       title: "Email",
-      value: "jaideepch45@gmail.com",
-      link: "mailto:jaideepch45@gmail.com",
+      value: "jai.fstec@gmail.com",
+      link: "mailto:jai.fstec@gmail.com",
     },
     {
       icon: <FaPhone />,
       title: "Phone",
-      value: "+1 (410) 709-6464",
-      link: "tel:+14107096464",
+      value: "+1 (410) 826-7008",
+      link: "tel:+14108267008",
     },
     {
       icon: <FaLinkedin />,
       title: "LinkedIn",
-      value: "linkedin.com/in/jaideep-v41",
-      link: "https://linkedin.com/in/jaideep-v41",
+      value: "linkedin.com/in/jaideep-ft",
+      link: "https://www.linkedin.com/in/jaideep-ft/",
     },
     {
       icon: <FaGithub />,

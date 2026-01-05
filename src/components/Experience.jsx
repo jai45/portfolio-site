@@ -12,7 +12,7 @@ const Experience = () => {
     {
       title: "Full Stack Engineer",
       company: "TD Bank",
-      period: "May 2023 - Present",
+      period: "July 2024 - Present",
       description: [
         "Architected and deployed Spring Boot 3.x microservices with Spring Cloud, Kafka, and Redis, enabling near real-time ESG analytics and reducing data-processing latency by 90%.",
         "Led integration of React 18 Micro-Frontends using Webpack Module Federation, Redux Toolkit Query, and TypeScript, improving UI reusability and decreasing API calls by 60%.",
