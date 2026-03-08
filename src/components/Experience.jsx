@@ -14,10 +14,10 @@ const Experience = () => {
       company: "TD Bank",
       period: "July 2024 - Present",
       description: [
-        "Architected and deployed Spring Boot 3.x microservices with Spring Cloud, Kafka, and Redis, enabling near real-time ESG analytics and reducing data-processing latency by 90%.",
-        "Led integration of React 18 Micro-Frontends using Webpack Module Federation, Redux Toolkit Query, and TypeScript, improving UI reusability and decreasing API calls by 60%.",
-        "Deployed containerized services to AWS EKS using Helm Charts, CloudFront, and S3, achieving 40% faster global response times and zero-downtime releases via GitHub Actions CI/CD.",
-        "Enhanced API performance through JPA/Hibernate ORM tuning, Redis caching, and query optimization, cutting REST API RTT from 3 seconds to under 100 ms.",
+        "Engineered and deployed Java Spring Boot microservices with Apache Kafka, REST, and GraphQL APIs to process millions of analyst events per day with sub-second latency.",
+        "Led the integration of React micro-frontends using Webpack Module Federation and a shared message bus, enabling independent deployments and reducing API requests by 60% through reusable UI architecture.",
+        "Improved ESG search and reporting by combining Elasticsearch with Oracle, while building MongoDB-to-Snowflake ETL workflows and Python-based validation scripts for accurate, real-time KPI insights.",
+        "Boosted platform resilience and performance through AWS API Gateway, ALB routing, disaster recovery planning, caching, CDN integration, and lazy loading, lowering response latency and supporting traffic growth.",
       ],
     },
     {
@@ -25,10 +25,10 @@ const Experience = () => {
       company: "Lumen Technologies",
       period: "Aug 2021 - Jul 2022",
       description: [
-        "Built and optimized multi-threaded Spring Boot microservices with Spring Cloud circuit breakers and retry patterns, boosting throughput and fault tolerance by 80%.",
-        "Developed Angular 12 dashboards with NgRx state management and AWS Cognito RBAC, reducing ticket-resolution time by 40% while enhancing security and accessibility (WCAG 2.1).",
-        "Automated deployments on AWS EKS using Helm Charts and Jenkins pipelines, accelerating release cycles by 35%.",
-        "Refactored legacy Spring eBonding services into RESTful Spring Boot microservices, improving partner system interoperability and SLA compliance.",
+        "Optimized a Java Spring Boot backend by converting synchronous payroll workflows into multi-threaded batch processes, reducing execution time by 75% and increasing throughput 3x.",
+        "Cut REST API response times from seconds to under 100ms by tuning JPA/Hibernate mappings, adding database indexes, introducing Redis caching, and enabling server-side pagination.",
+        "Designed a React application for support agents with Redux-based state management, improving responsiveness and reducing ticket resolution time by 40%.",
+        "Modernized payroll ingestion with AWS S3 and Lambda workflows and deployed microservices on Kubernetes (EKS) with Helm, shortening release cycles and improving scalability.",
       ],
     },
     {
@@ -36,10 +36,10 @@ const Experience = () => {
       company: "Cognizant",
       period: "Jan 2021 - Jul 2021",
       description: [
-        "Delivered core modules for an inventory-management platform using Java 17, Spring Boot, React, and PostgreSQL hosted on Azure App Services, ensuring scalability and high availability.",
-        "Implemented JWT authentication and Azure API Management for secure API gateway access across microservices.",
-        "Built Node.js event-driven services with WebSocket integration for real-time inventory updates across warehouses.",
-        "Automated build/test/deploy pipelines via Jenkins CI/CD, shortening delivery cycles from weeks to days and improving release reliability.",
+        "Developed and deployed core modules of an inventory management platform using Java, Spring Boot, Node.js, React, PostgreSQL, and Elasticsearch on Azure App Services.",
+        "Built React frontends with TypeScript and Material UI, improving component performance and reducing load times across key user workflows.",
+        "Implemented Node.js backend services with asynchronous event handling and WebSocket communication to deliver near real-time inventory updates.",
+        "Built and optimized Jenkins CI/CD pipelines for RESTful microservices, accelerating build, test, and deployment cycles from weeks to days.",
       ],
     },
     {

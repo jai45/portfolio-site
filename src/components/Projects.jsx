@@ -10,58 +10,28 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "Dropbox Clone",
       description:
-        "Full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, product management, shopping cart, and payment integration.",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe", "Redux"],
-      github: "https://github.com",
-      live: "https://example.com",
-      image: "🛒",
-    },
-    {
-      title: "Task Management App",
-      description:
-        "Collaborative task management application with real-time updates. Built with modern web technologies and featuring drag-and-drop functionality.",
-      technologies: ["React", "Firebase", "TypeScript", "Material-UI"],
-      github: "https://github.com",
-      live: "https://example.com",
-      image: "✓",
-    },
-    {
-      title: "Weather Dashboard",
-      description:
-        "Real-time weather dashboard using OpenWeather API. Features include location search, forecast data, and interactive charts for weather visualization.",
-      technologies: ["React", "Chart.js", "API Integration", "CSS3"],
-      github: "https://github.com",
-      live: "https://example.com",
-      image: "🌤️",
-    },
-    {
-      title: "Social Media App",
-      description:
-        "Social networking platform with posts, comments, likes, and real-time notifications. Implemented with microservices architecture.",
-      technologies: ["React", "Node.js", "PostgreSQL", "Socket.io", "Docker"],
-      github: "https://github.com",
-      live: "https://example.com",
-      image: "💬",
-    },
-    {
-      title: "Portfolio Generator",
-      description:
-        "Automated portfolio website generator allowing users to create professional portfolios by inputting their information through an intuitive form.",
-      technologies: ["Next.js", "TailwindCSS", "Markdown", "Vercel"],
-      github: "https://github.com",
-      live: "https://example.com",
-      image: "🎨",
-    },
-    {
-      title: "Fitness Tracker",
-      description:
-        "Mobile-responsive fitness tracking application with workout logging, progress charts, and goal setting features.",
-      technologies: ["React Native", "Redux", "Firebase", "Chart.js"],
-      github: "https://github.com",
-      live: "https://example.com",
-      image: "💪",
+        "A full-stack Dropbox-style file storage platform built with React + Vite and Java Spring Boot, focused on fast uploads, resumable large-file transfers, and efficient cloud-backed storage workflows.",
+      highlights: [
+        "Implements secure authentication with JWT access tokens and refresh token rotation using HttpOnly cookies.",
+        "Uploads files directly from the browser to Cloudflare R2 using presigned URLs for efficient, scalable transfer flows.",
+        "Supports multipart uploads for files larger than 10 MB with 5 MB parallel chunks and resumable recovery after interruptions.",
+        "Uses SHA-256 deduplication with Web Worker-based hashing and stores metadata, refresh tokens, and multipart progress in Neon Postgres.",
+      ],
+      technologies: [
+        "React 19",
+        "Vite 7",
+        "Java 17",
+        "Spring Boot",
+        "Spring Security",
+        "Neon Postgres",
+        "Cloudflare R2",
+        "Docker",
+      ],
+      github: "https://github.com/jai45/Dropbox",
+      live: "https://dropbox-mauve.vercel.app/",
+      image: "☁️",
     },
   ];
 
@@ -95,7 +65,7 @@ const Projects = () => {
         >
           <h2 className="section-title">Projects</h2>
           <div className="title-underline"></div>
-          <p className="section-subtitle">Some of my recent work</p>
+          <p className="section-subtitle">Recent projects I’ve built</p>
         </motion.div>
 
         <motion.div
@@ -111,12 +81,19 @@ const Projects = () => {
               className="project-card"
               whileHover={{ y: -10 }}
             >
-              <div className="project-image">
+              {/* <div className="project-image">
                 <span className="project-emoji">{project.image}</span>
-              </div>
+              </div> */}
               <div className="project-content">
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
+                {project.highlights && (
+                  <ul className="project-highlights">
+                    {project.highlights.map((highlight, idx) => (
+                      <li key={idx}>{highlight}</li>
+                    ))}
+                  </ul>
+                )}
                 <div className="project-technologies">
                   {project.technologies.map((tech, idx) => (
                     <span key={idx} className="tech-tag">
@@ -134,15 +111,17 @@ const Projects = () => {
                   >
                     <FaGithub /> Code
                   </motion.a>
-                  <motion.a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <FaExternalLinkAlt /> Live Demo
-                  </motion.a>
+                  {project.live && (
+                    <motion.a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <FaExternalLinkAlt /> Live Demo
+                    </motion.a>
+                  )}
                 </div>
               </div>
             </motion.div>
