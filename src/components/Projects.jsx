@@ -10,7 +10,7 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Dropbox Clone",
+      title: "Distributed File Storage System (Dropbox-like)",
       description:
         "A full-stack Dropbox-style file storage platform built with React + Vite and Java Spring Boot, focused on fast uploads, resumable large-file transfers, and efficient cloud-backed storage workflows.",
       highlights: [
