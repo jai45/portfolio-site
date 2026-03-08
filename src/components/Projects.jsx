@@ -14,10 +14,11 @@ const Projects = () => {
       description:
         "A full-stack Dropbox-style file storage platform built with React + Vite and Java Spring Boot, focused on fast uploads, resumable large-file transfers, and efficient cloud-backed storage workflows.",
       highlights: [
-        "Implements secure authentication with JWT access tokens and refresh token rotation using HttpOnly cookies.",
-        "Uploads files directly from the browser to Cloudflare R2 using presigned URLs for efficient, scalable transfer flows.",
-        "Supports multipart uploads for files larger than 10 MB with 5 MB parallel chunks and resumable recovery after interruptions.",
-        "Uses SHA-256 deduplication with Web Worker-based hashing and stores metadata, refresh tokens, and multipart progress in Neon Postgres.",
+        "Secure authentication with JWT access tokens and rotating refresh tokens stored in HttpOnly cookies.",
+        "Direct browser-to-cloud uploads using presigned URLs with S3 for scalable file transfers.",
+        "Multipart upload system with parallel 5 MB chunks and resumable recovery for large files.",
+        "SHA-256 file deduplication with Web Worker hashing to avoid duplicate storage.",
+        "Metadata, token management, and upload progress tracking using Neon Postgres."
       ],
       technologies: [
         "React 19",
